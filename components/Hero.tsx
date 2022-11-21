@@ -5,8 +5,6 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 import { User } from "@/types";
 
-import { lightTheme } from "@/constants/colors";
-
 import { BackgroundCircles } from "@/components";
 
 interface Props {
@@ -39,7 +37,7 @@ const Hero = ({ user }: Props) => {
 
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span>{text}</span>
-          <Cursor cursorColor={lightTheme.primary} />
+          <Cursor cursorColor="var(--primary)" />
         </h1>
 
         <div className="pt-5">

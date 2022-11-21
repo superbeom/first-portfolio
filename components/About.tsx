@@ -25,8 +25,7 @@ const About = ({ user }: Props) => {
 
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
-          Here is a{" "}
-          <span className="underline decoration-primary/40">little</span>{" "}
+          Here is a <span className="underline decoration-primary">little</span>{" "}
           background
         </h4>
         <p>{user.background}</p>

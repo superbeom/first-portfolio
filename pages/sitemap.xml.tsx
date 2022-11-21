@@ -1,7 +1,5 @@
 import { GetServerSideProps } from "next";
 
-import prismaClient from "@/lib/prisma";
-
 const createSitemap = (
   pageUrls: string[]
 ) => `<?xml version="1.0" encoding="UTF-8"?>
@@ -22,17 +20,7 @@ const createSitemap = (
 `;
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const examples = await prismaClient.example.findMany();
-  const productPageUrls = examples.map((example) => `example/${example.slug}`);
-
-  const pageUrls = [
-    "",
-    "like",
-    "privacy-policy",
-    "terms-of-service",
-    "shopping-guide",
-    ...productPageUrls,
-  ];
+  const pageUrls = [""];
 
   res.setHeader("Content-Type", "text/xml");
   res.setHeader(

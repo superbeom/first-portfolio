@@ -1,19 +1,24 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
+import { MdSettings, MdLightMode, MdDarkMode } from "react-icons/md";
 
 import { Social } from "@/types";
+import useStore from "@/store";
+
+import useDebounce from "@/hooks/useDebounce";
+import routes from "@/constants/routes";
+import { DARK, LIGHT, THEME } from "@/constants/strings";
+
+import { getSocialsApi } from "@/lib/fetch";
+import { smoothScroll } from "@/utils";
 
 interface Motion {
   position: number;
-  className: string;
+  className?: string;
   onClick?: () => void;
   children: ReactNode;
-}
-
-interface Props {
-  socials: Social[];
 }
 
 const posistion = 500;
@@ -49,33 +54,73 @@ const MotionDiv = ({ position, className, onClick, children }: Motion) => (
   </motion.div>
 );
 
-const Header = ({ socials }: Props) => {
+const Header = () => {
   const router = useRouter();
 
+  const [isReady, setIsReady] = useState<boolean>(false);
+  const [socials, setSocials] = useState<Social[]>([]);
+
+  const { theme, updateTheme } = useStore();
+
+  const preLoad = useDebounce(async () => {
+    try {
+      const parsedSocials = await getSocialsApi();
+      setSocials(parsedSocials);
+    } catch (error) {
+    } finally {
+      setIsReady(true);
+    }
+  });
+
+  useEffect(() => {
+    preLoad();
+  }, []);
+
   return (
-    <header className="sticky top-0 flex justify-between items-start xl:items-center max-w-7xl p-5 md:mx-auto z-10">
+    <div
+      className="fixed top-0 flex justify-between items-start xl:items-center
+                 w-full p-5 sm:px-10 cursor-pointer z-10"
+    >
       <MotionDiv position={-posistion} className="flex items-center">
-        {socials.map((social) => (
-          <SocialIcon
-            key={social.id}
-            network={social.name}
-            url={social.url}
-            {...socialIconStyle}
-          />
-        ))}
+        {isReady &&
+          socials.map((social) => (
+            <SocialIcon
+              key={social.id}
+              network={social.name}
+              url={social.url}
+              {...socialIconStyle}
+            />
+          ))}
+
+        <SocialIcon
+          network="email"
+          {...socialIconStyle}
+          onClick={() => smoothScroll("contact")}
+        />
       </MotionDiv>
 
-      <MotionDiv
-        position={posistion}
-        className="flex items-center text-gray-300 cursor-pointer"
-        onClick={() => router.push("#contact")}
-      >
-        <SocialIcon network="email" {...socialIconStyle} />
-        <p className="uppercase hidden md:inline-flex text-sm font-semibold text-gray-400">
-          Get In Touch
-        </p>
+      <MotionDiv position={posistion} className="flex items-center space-x-5">
+        <MdSettings
+          className="text-gray-500"
+          size={23}
+          onClick={() => router.push(routes.setting)}
+        />
+
+        <div
+          className="text-gray-500"
+          onClick={() => {
+            updateTheme(theme === LIGHT ? DARK : LIGHT);
+            localStorage.setItem(THEME, theme === LIGHT ? DARK : LIGHT);
+          }}
+        >
+          {theme === LIGHT ? (
+            <MdDarkMode size={23} />
+          ) : (
+            <MdLightMode size={23} />
+          )}
+        </div>
       </MotionDiv>
-    </header>
+    </div>
   );
 };
 

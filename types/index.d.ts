@@ -1,8 +1,3 @@
-export interface Setting {
-  id: string;
-  primaryColor: string;
-}
-
 export interface User {
   id: string;
   name: string;

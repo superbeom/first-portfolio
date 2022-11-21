@@ -25,10 +25,31 @@ a {
   box-sizing: border-box;
 }
 
+/* Theme */
+@layer base {
+  :root {
+    --primary: rgb(85, 239, 195);
+    --primary-80: rgba(85, 239, 195, 0.8);
+    --background: rgb(240, 240, 240);
+    --content: rgb(54, 54, 54);
+  }
+
+  .dark {
+    --primary: rgb(253, 121, 168);
+    --primary-80: rgba(253, 121, 168, 0.8);
+    --background: rgb(54, 54, 54);
+    --content: rgb(240, 240, 240);
+  }
+}
+
 /* Styles */
 @layer components {
   .flex-center {
     @apply flex justify-center items-center;
+  }
+  .scroll-layout {
+    @apply h-screen custom-scrollbar overflow-x-hidden
+           overflow-y-scroll snap-y snap-mandatory;
   }
   .motion-container {
     @apply relative flex flex-col md:flex-row h-screen
@@ -40,15 +61,15 @@ a {
   .hero-button {
     @apply px-6 py-2 border border-darkGray rounded-full uppercase
            text-xs text-gray-500 tracking-widest transition-all
-           hover:border-primary/40 hover:text-primary/40;
+           hover:border-primary-80 hover:text-primary-80;
   }
   .contact-input {
     @apply outline-none bg-slate-400/10 rounded-sm border-b
-           px-6 py-4 border-darkGray text-gray-500
-           placeholder-gray-500 transition-all focus:border-primary/40
-           focus:text-primary/40 hover:border-primary/40;
+           px-6 py-4 border-darkGray text-primary-80
+           placeholder-gray-500 transition-all focus:border-primary-80
+           focus:text-primary-80 hover:border-primary-80;
   }
   .custom-scrollbar {
-    @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary;
+    @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary-80;
   }
 }
