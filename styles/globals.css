@@ -27,16 +27,16 @@ a {
 
 /* Theme */
 @layer base {
-  :root {
-    --primary: rgb(85, 239, 195);
-    --primary-80: rgba(85, 239, 195, 0.8);
+  .light {
+    --primary: rgb(253, 121, 168);
+    --primary-80: rgba(253, 121, 168, 0.8);
     --background: rgb(240, 240, 240);
     --content: rgb(54, 54, 54);
   }
 
   .dark {
-    --primary: rgb(253, 121, 168);
-    --primary-80: rgba(253, 121, 168, 0.8);
+    --primary: rgb(159, 224, 218);
+    --primary-80: rgba(159, 224, 218, 0.8);
     --background: rgb(54, 54, 54);
     --content: rgb(240, 240, 240);
   }
