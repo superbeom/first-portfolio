@@ -25,5 +25,30 @@ a {
   box-sizing: border-box;
 }
 
+/* Styles */
 @layer components {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .motion-container {
+    @apply relative flex flex-col md:flex-row h-screen
+           justify-evenly items-center px-10 mx-auto;
+  }
+  .title {
+    @apply absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl;
+  }
+  .hero-button {
+    @apply px-6 py-2 border border-darkGray rounded-full uppercase
+           text-xs text-gray-500 tracking-widest transition-all
+           hover:border-primary/40 hover:text-primary/40;
+  }
+  .contact-input {
+    @apply outline-none bg-slate-400/10 rounded-sm border-b
+           px-6 py-4 border-darkGray text-gray-500
+           placeholder-gray-500 transition-all focus:border-primary/40
+           focus:text-primary/40 hover:border-primary/40;
+  }
+  .custom-scrollbar {
+    @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary;
+  }
 }
