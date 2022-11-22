@@ -29,7 +29,6 @@ const Projects = ({ projects }: Props) => {
               initial={{ y: -300, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
               src="https://res.cloudinary.com/ds8wavxll/image/upload/v1668665907/cat2_nmkrwg.jpg"
               alt=""
               width={200}

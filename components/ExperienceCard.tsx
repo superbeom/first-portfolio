@@ -20,7 +20,6 @@ const ExperienceCard = ({ experience }: Props) => {
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
         className="w-32 h-32 ball xl:w-[200px] xl:h-[200px] object-cover object-center"
         src={experience.companyImage}
       />
