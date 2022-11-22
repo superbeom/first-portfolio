@@ -8,7 +8,7 @@ import useStore from "@/store";
 
 import socialColors from "@/constants/socialColors";
 
-import { BackgroundCircles } from "@/components";
+import { Circles } from "@/components";
 
 interface Props {
   user: User;
@@ -26,7 +26,7 @@ const Hero = ({ user, socials }: Props) => {
 
   return (
     <div className="h-screen flex-center flex-col space-y-8 text-center overflow-hidden">
-      <BackgroundCircles />
+      <Circles />
 
       <Image
         className="w-32 h-32 mx-auto ball object-cover"

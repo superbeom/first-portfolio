@@ -9,8 +9,6 @@ interface Props {
 }
 
 const Projects = ({ projects }: Props) => {
-  // const projects = [1, 2, 3, 4, 5];
-
   return (
     <MotionContainer
       className="relative h-screen flex flex-col overflow-hidden

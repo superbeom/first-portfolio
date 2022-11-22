@@ -19,8 +19,17 @@ module.exports = {
         darkGray: "#242424",
         lightGray: "#4A4848",
       },
+      keyframes: {
+        "opposite-ping": {
+          "0%": {
+            transform: "scale(-2)",
+            opacity: 0,
+          },
+        },
+      },
       animation: {
         "slow-ping": "ping 2s cubic-bezier(0, 0, 0.2, 1) infinite",
+        "opposite-ping": "opposite-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },

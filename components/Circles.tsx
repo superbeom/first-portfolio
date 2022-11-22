@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const BackgroundCircles = () => {
+const Circles = () => {
   return (
     <motion.div
       initial={{
@@ -20,10 +20,10 @@ const BackgroundCircles = () => {
       <div className="circle w-[200px] h-[200px] animate-slow-ping" />
       <div className="circle w-[250px] h-[250px] lg:w-[300px] lg:h-[300px]" />
       <div className="circle lg:w-[500px] lg:h-[500px]" />
-      <div className="circle w-[400px] h-[400px] border-primary lg:w-[650px] lg:h-[650px] opacity-80 animate-pulse" />
-      <div className="circle lg:w-[800px] lg:h-[800px]" />
+      <div className="circle w-[400px] h-[400px] lg:w-[650px] lg:h-[650px] border-primary opacity-80 animate-pulse" />
+      <div className="circle lg:w-[800px] lg:h-[800px] animate-opposite-ping" />
     </motion.div>
   );
 };
 
-export default BackgroundCircles;
+export default Circles;
