@@ -25,13 +25,14 @@ a {
   box-sizing: border-box;
 }
 
-/* Theme */
+/* Themes */
 @layer base {
   .light {
     --primary: rgb(253, 121, 168);
     --primary-80: rgba(253, 121, 168, 0.8);
     --background: rgb(240, 240, 240);
     --content: rgb(54, 54, 54);
+    --content-10: rgba(54, 54, 54, 0.05);
   }
 
   .dark {
@@ -39,6 +40,7 @@ a {
     --primary-80: rgba(159, 224, 218, 0.8);
     --background: rgb(54, 54, 54);
     --content: rgb(240, 240, 240);
+    --content-10: rgba(240, 240, 240, 0.02);
   }
 }
 
@@ -55,11 +57,17 @@ a {
     @apply relative flex flex-col md:flex-row h-screen
            justify-evenly items-center px-10 mx-auto;
   }
+  .ball {
+    @apply rounded-full;
+  }
+  .pointer {
+    @apply cursor-pointer;
+  }
   .title {
     @apply absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl;
   }
   .hero-button {
-    @apply px-6 py-2 border border-darkGray rounded-full uppercase
+    @apply px-6 py-2 ball uppercase
            text-xs text-gray-500 tracking-widest transition-all
            hover:border-primary-80 hover:text-primary-80;
   }
@@ -71,5 +79,11 @@ a {
   }
   .custom-scrollbar {
     @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary-80;
+  }
+  .circle {
+    @apply absolute border border-lightGray ball mt-52;
+  }
+  .nav-icon {
+    @apply w-6 h-6 text-[gray] pointer;
   }
 }

@@ -1,9 +1,13 @@
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 
-import { User, Experience as ExperienceType, Project, Skill } from "@/types";
+import {
+  User,
+  Experience as ExperienceType,
+  Project,
+  Skill,
+  Social,
+} from "@/types";
 
 import {
   getUserApi,
@@ -11,7 +15,6 @@ import {
   getSkillsApi,
   getProjectsApi,
 } from "@/lib/fetch";
-import { smoothScroll } from "@/utils";
 
 import {
   Hero,
@@ -28,9 +31,16 @@ interface Props {
   skills: Skill[];
   experiences: ExperienceType[];
   projects: Project[];
+  socials: Social[];
 }
 
-const Home: NextPage<Props> = ({ user, skills, experiences, projects }) => {
+const Home: NextPage<Props> = ({
+  user,
+  skills,
+  experiences,
+  projects,
+  socials,
+}) => {
   if (!user) {
     return <Invalid />;
   }
@@ -38,7 +48,7 @@ const Home: NextPage<Props> = ({ user, skills, experiences, projects }) => {
   return (
     <div className="scroll-layout">
       <section id="hero" className="snap-start">
-        <Hero user={user} />
+        <Hero user={user} socials={socials} />
       </section>
 
       <section id="about" className="snap-center">
@@ -60,19 +70,6 @@ const Home: NextPage<Props> = ({ user, skills, experiences, projects }) => {
       <section id="contact" className="snap-start">
         <ContactMe />
       </section>
-
-      <footer className="sticky bottom-5 w-full cursor-pointer">
-        <div className="flex-center">
-          <Image
-            className="w-10 h-10 rounded-full filter grayscale hover:grayscale-0"
-            src={user.image}
-            alt=""
-            width={40}
-            height={40}
-            onClick={() => smoothScroll("hero")}
-          />
-        </div>
-      </footer>
     </div>
   );
 };
@@ -92,6 +89,5 @@ export const getStaticProps: GetStaticProps = async () => {
       experiences,
       projects,
     },
-    revalidate: 10,
   };
 };

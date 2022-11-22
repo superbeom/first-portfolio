@@ -17,11 +17,11 @@ const BackgroundCircles = () => {
       }}
       className="relative flex-center"
     >
-      <div className="absolute border border-lightGray w-[200px] h-[200px] rounded-full mt-52 animate-ping" />
-      <div className="absolute border border-lightGray w-[300px] h-[300px] rounded-full mt-52" />
-      <div className="absolute border border-lightGray w-[500px] h-[500px] rounded-full mt-52" />
-      <div className="absolute border border-primary w-[650px] h-[650px] rounded-full opacity-20 mt-52 animate-pulse" />
-      <div className="absolute border border-lightGray w-[800px] h-[800px] rounded-full mt-52" />
+      <div className="circle w-[200px] h-[200px] animate-slow-ping" />
+      <div className="circle w-[250px] h-[250px] lg:w-[300px] lg:h-[300px]" />
+      <div className="circle lg:w-[500px] lg:h-[500px]" />
+      <div className="circle w-[400px] h-[400px] border-primary lg:w-[650px] lg:h-[650px] opacity-80 animate-pulse" />
+      <div className="circle lg:w-[800px] lg:h-[800px]" />
     </motion.div>
   );
 };

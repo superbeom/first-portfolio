@@ -1,17 +1,21 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { isMobileOnly } from "react-device-detect";
+import { SocialIcon } from "react-social-icons";
 
-import { User } from "@/types";
+import { User, Social } from "@/types";
+
+import socialColors from "@/constants/socialColors";
 
 import { BackgroundCircles } from "@/components";
 
 interface Props {
   user: User;
+  socials: Social[];
 }
 
-const Hero = ({ user }: Props) => {
+const Hero = ({ user, socials }: Props) => {
   const [text, _] = useTypewriter({
     words: user.description,
     loop: true,
@@ -23,7 +27,7 @@ const Hero = ({ user }: Props) => {
       <BackgroundCircles />
 
       <Image
-        className="w-32 h-32 mx-auto rounded-full object-cover"
+        className="w-32 h-32 mx-auto ball object-cover"
         src={user.image}
         alt="profile"
         width={128}
@@ -31,32 +35,36 @@ const Hero = ({ user }: Props) => {
       />
 
       <div className="z-20">
-        <h2 className="text-sm text-gray-500 uppercase pb-2 tracking-[15px]">
+        <h2 className="text-sm text-gray-500 uppercase pb-2 tracking-[5px] sm:tracking-[15px]">
           {user.role}
         </h2>
 
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
-          <span>{text}</span>
+          {/* <span>{text}</span> */}
           <Cursor cursorColor="var(--primary)" />
         </h1>
 
-        <div className="pt-5">
-          <Link href="#about">
-            <button className="hero-button">About</button>
-          </Link>
-
-          <Link href="#experience">
-            <button className="hero-button">Experience</button>
-          </Link>
-
-          <Link href="#skills">
-            <button className="hero-button">Skills</button>
-          </Link>
-
-          <Link href="#projects">
-            <button className="hero-button">Projects</button>
-          </Link>
-        </div>
+        {isMobileOnly && (
+          <div className="w-[90vw] flex-center pt-5">
+            <div className="w-[90%]">
+              {socials.map((social) => {
+                return (
+                  <SocialIcon
+                    key={social.id}
+                    network={social.name}
+                    url={social.url}
+                    className="opacity-80"
+                    style={{
+                      color: socialColors[`${social.name}`],
+                    }}
+                    fgColor="currentColor"
+                    bgColor="transparent"
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

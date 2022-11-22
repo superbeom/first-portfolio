@@ -1,6 +1,7 @@
 import React from "react";
+import { NextPage } from "next";
 
-const Setting = () => {
+const Setting: NextPage = () => {
   return <div className="flex-center h-screen scrollbar-none">setting</div>;
 };
 

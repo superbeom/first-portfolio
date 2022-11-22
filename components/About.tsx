@@ -19,7 +19,7 @@ const About = ({ user }: Props) => {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        className="w-56 h-56 flex-shrink-0 mt-32 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+        className="w-56 h-56 flex-shrink-0 mt-32 ball object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
         src={user.image}
       />
 

@@ -12,9 +12,15 @@ module.exports = {
           DEFAULT: "var(--primary)",
         },
         background: "var(--background)",
-        content: "var(--content)",
+        content: {
+          10: "var(--content-10)",
+          DEFAULT: "var(--content)",
+        },
         darkGray: "#242424",
         lightGray: "#4A4848",
+      },
+      animation: {
+        "slow-ping": "ping 2s cubic-bezier(0, 0, 0.2, 1) infinite",
       },
     },
   },

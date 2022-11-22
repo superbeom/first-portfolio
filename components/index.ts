@@ -1,4 +1,8 @@
-export { default as Header } from "./Header";
+export { default as LeftNav } from "./LeftNav";
+export { default as RightNav } from "./RightNav";
+export { default as Panel } from "./Panel";
+export { default as MobilePanel } from "./MobilePanel";
+export { default as Loader } from "./Loader";
 export { default as Hero } from "./Hero";
 export { default as About } from "./About";
 export { default as Experience } from "./Experience";
@@ -7,6 +11,7 @@ export { default as Projects } from "./Projects";
 export { default as ContactMe } from "./ContactMe";
 
 export { default as BackgroundCircles } from "./BackgroundCircles";
+export { default as MotionNav } from "./MotionNav";
 export { default as MotionContainer } from "./MotionContainer";
 export { default as ExperienceCard } from "./ExperienceCard";
 export { default as Skill } from "./Skill";

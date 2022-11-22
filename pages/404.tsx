@@ -1,6 +1,7 @@
 import React from "react";
+import { NextPage } from "next";
 
-const NotFound = () => {
+const NotFound: NextPage = () => {
   return (
     <div
       className="h-screen flex-center flex-col bg-background
