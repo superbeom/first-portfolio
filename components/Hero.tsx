@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import { isMobileOnly } from "react-device-detect";
 import { SocialIcon } from "react-social-icons";
 
 import { User, Social } from "@/types";
+import useStore from "@/store";
 
 import socialColors from "@/constants/socialColors";
 
@@ -16,6 +16,8 @@ interface Props {
 }
 
 const Hero = ({ user, socials }: Props) => {
+  const { isMobile } = useStore();
+
   const [text, _] = useTypewriter({
     words: user.description,
     loop: true,
@@ -44,7 +46,7 @@ const Hero = ({ user, socials }: Props) => {
           <Cursor cursorColor="var(--primary)" />
         </h1>
 
-        {isMobileOnly && (
+        {isMobile && (
           <div className="w-[90vw] flex-center pt-5">
             <div className="w-[90%]">
               {socials.map((social) => {

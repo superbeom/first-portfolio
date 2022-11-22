@@ -3,7 +3,6 @@ import "../styles/globals.css";
 import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { isMobileOnly } from "react-device-detect";
 
 import { Social } from "@/types";
 
@@ -19,7 +18,17 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [isReady, setIsReady] = useState<boolean>(false);
   const [socials, setSocials] = useState<Social[]>([]);
 
-  const { title, theme, updateTheme } = useStore();
+  const { title, theme, isMobile, updateTheme, updateIsMobile } = useStore();
+
+  const detectResize = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 425) {
+      updateIsMobile(true);
+    } else {
+      updateIsMobile(false);
+    }
+  };
 
   const preLoad = useDebounce(async () => {
     try {
@@ -28,6 +37,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 
       const parsedSocials = await getSocialsApi();
       setSocials(parsedSocials);
+
+      detectResize();
     } catch (error: any) {
       console.log("Error @preLoad - Leftnav: ", error.message);
     } finally {
@@ -37,6 +48,10 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     preLoad();
+
+    window.addEventListener("resize", detectResize);
+
+    return () => window.removeEventListener("resize", detectResize);
   }, []);
 
   if (!isReady) {
@@ -66,7 +81,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} socials={socials} />
       </main>
 
-      <section>{isMobileOnly ? <MobilePanel /> : <Panel />}</section>
+      <section>{isMobile ? <MobilePanel /> : <Panel />}</section>
     </div>
   );
 };

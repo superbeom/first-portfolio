@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { isMobileOnly } from "react-device-detect";
 import { SocialIcon } from "react-social-icons";
 
 import { Social } from "@/types";
+import useStore from "@/store";
 
 import socialColors from "@/constants/socialColors";
 import { position } from "@/constants/styles";
@@ -15,6 +15,7 @@ interface Props {
 
 const LeftNav = ({ socials }: Props) => {
   const [target, setTarget] = useState<string>("");
+  const { isMobile } = useStore();
 
   const handleMouseEnter = (target: string) => {
     setTarget(target);
@@ -27,10 +28,9 @@ const LeftNav = ({ socials }: Props) => {
   return (
     <MotionNav
       position={-position}
-      className="fixed left-0 flex flex-col items-center py-2 z-10
-      mx-2 my-3"
+      className="fixed left-0 flex flex-col items-center py-2 mx-2 my-3 z-10"
     >
-      {!isMobileOnly && (
+      {!isMobile && (
         <>
           {socials.map((social) => {
             return (
