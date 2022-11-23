@@ -12,12 +12,11 @@ module.exports = {
           DEFAULT: "var(--primary)",
         },
         background: "var(--background)",
+        "background-light": "var(--background-light)",
         content: {
           10: "var(--content-10)",
           DEFAULT: "var(--content)",
         },
-        darkGray: "#242424",
-        lightGray: "#4A4848",
       },
       keyframes: {
         "opposite-ping": {

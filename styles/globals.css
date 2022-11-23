@@ -35,6 +35,7 @@ a {
     --primary: rgb(253, 121, 168);
     --primary-80: rgba(253, 121, 168, 0.8);
     --background: rgb(240, 240, 240);
+    --background-light: rgb(181, 183, 183);
     --content: rgb(54, 54, 54);
     --content-10: rgba(54, 54, 54, 0.05);
   }
@@ -43,6 +44,7 @@ a {
     --primary: rgb(159, 224, 218);
     --primary-80: rgba(159, 224, 218, 0.8);
     --background: rgb(54, 54, 54);
+    --background-light: rgb(74, 72, 72);
     --content: rgb(240, 240, 240);
     --content-10: rgba(240, 240, 240, 0.02);
   }
@@ -69,30 +71,30 @@ a {
   .title {
     @apply absolute top-14 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl;
   }
-  .about-role {
-    @apply uppercase text-gray-500 tracking-[2px];
+  .circle {
+    @apply absolute border border-background-light ball mt-52;
   }
-  .hero-button {
+  .panel-button {
     @apply px-6 py-2 ball uppercase
            text-sm text-gray-500 tracking-widest transition-all
            hover:border-primary-80 hover:text-primary-80;
   }
-  .contact-input {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b
-           px-6 py-4 border-darkGray text-primary-80
-           placeholder-gray-500 transition-all focus:border-primary-80
-           focus:text-primary-80 hover:border-primary-80;
+  .about-role {
+    @apply uppercase text-gray-500 tracking-[2px];
+  }
+  .contact-detail {
+    @apply flex-center space-x-5 text-xl md:text-2xl;
+  }
+  .contact-icon {
+    @apply text-primary md:w-6 md:h-6 animate-pulse;
   }
   .custom-scrollbar {
     @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary-80;
   }
-  .circle {
-    @apply absolute border border-lightGray ball mt-52;
-  }
-  .nav-icon {
-    @apply w-6 h-6 text-[gray] pointer;
-  }
   .check {
     @apply border border-red-500;
+  }
+  .check-second {
+    @apply border border-yellow-500;
   }
 }

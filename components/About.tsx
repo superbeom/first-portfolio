@@ -12,7 +12,7 @@ interface Props {
 const About = ({ user }: Props) => {
   return (
     <MotionContainer
-      className="min-h-screen h-full motion-container max-w-7xl text-center lg:text-left
+      className="min-h-screen h-full motion-container lg:max-w-5xl xl:max-w-7xl text-center lg:text-left
     justify-start sm:justify-evenly"
     >
       <h2 className="title">About</h2>

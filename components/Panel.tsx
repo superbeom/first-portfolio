@@ -24,7 +24,9 @@ const Panel = ({ activeId }: Props) => {
       {sections.map((section) => (
         <button
           key={section.id}
-          className={`${activeId === section.id && "text-primary"} hero-button`}
+          className={`${
+            activeId === section.id && "text-primary"
+          } panel-button`}
           onClick={() => hadleClick(section.id)}
         >
           {section.name}
