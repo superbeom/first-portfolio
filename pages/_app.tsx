@@ -80,7 +80,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     } catch (error: any) {
       console.log("Error @preLoad - Leftnav: ", error.message);
     } finally {
-      setIsReady(true);
+      setTimeout(() => setIsReady(true), 100);
     }
   });
 
@@ -105,7 +105,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     return () => {
       () => window.addEventListener("scroll", () => detectScroll(sections));
     };
-  }, [isReady, isMobile]);
+  }, [isReady, isMobile]); // First loaded > 'sections' is [] > isReady: true > useEffect re-excute
 
   if (!isReady) {
     return <Loader />;

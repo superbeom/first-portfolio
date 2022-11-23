@@ -54,7 +54,7 @@ a {
     @apply flex justify-center items-center;
   }
   .motion-container {
-    @apply relative flex flex-col md:flex-row h-screen
+    @apply relative flex flex-col lg:flex-row h-screen
            justify-evenly items-center px-10 mx-auto;
   }
   .ball {
@@ -66,8 +66,8 @@ a {
   .title {
     @apply absolute top-14 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl;
   }
-  .sub-title {
-    @apply title top-36 tracking-[3px] text-sm;
+  .about-role {
+    @apply uppercase text-gray-500 tracking-[2px];
   }
   .hero-button {
     @apply px-6 py-2 ball uppercase
@@ -88,5 +88,8 @@ a {
   }
   .nav-icon {
     @apply w-6 h-6 text-[gray] pointer;
+  }
+  .check {
+    @apply border border-red-500;
   }
 }
