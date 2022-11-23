@@ -25,7 +25,7 @@ const Hero = ({ user, socials }: Props) => {
   });
 
   return (
-    <div className="h-screen flex-center flex-col space-y-8 text-center overflow-hidden">
+    <div className="min-h-screen flex-center flex-col space-y-8 text-center overflow-hidden">
       <Circles />
 
       <Image
@@ -38,14 +38,14 @@ const Hero = ({ user, socials }: Props) => {
       />
 
       <div className="z-20">
-        <h2 className="text-sm text-gray-500 uppercase pb-2 tracking-[5px] sm:tracking-[15px]">
+        <h4 className="text-sm text-gray-500 uppercase pb-2 tracking-[5px] sm:tracking-[15px]">
           {user.role}
-        </h2>
+        </h4>
 
-        <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+        <h3 className="text-5xl lg:text-6xl font-semibold px-10">
           {/* <span>{text}</span> */}
           <Cursor cursorColor="var(--primary)" />
-        </h1>
+        </h3>
 
         {isMobile && (
           <div className="w-[90vw] flex-center pt-5">

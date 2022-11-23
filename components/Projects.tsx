@@ -14,7 +14,7 @@ const Projects = ({ projects }: Props) => {
       className="relative h-screen flex flex-col overflow-hidden
     text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
-      <h3 className="title">Projects</h3>
+      <h2 className="title">Projects</h2>
 
       <div
         className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
@@ -36,12 +36,12 @@ const Projects = ({ projects }: Props) => {
             />
 
             <div className="space-y-10 px-0 md:px-10 max-w-6xl flex flex-col items-center">
-              <h4 className="text-4xl font-semibold text-center">
+              <h3 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-primary/50">
                   Case Study {index + 1} of {projects.length}
                 </span>
                 : UPS Clone
-              </h4>
+              </h3>
 
               <p className="sm:w-[80%] md:w-[70%] lg:w-[50%] text-lg text-center md:text-left">
                 Netflix 2.0 app that has a Log In and Log Out Authentication

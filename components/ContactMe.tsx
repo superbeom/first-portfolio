@@ -19,13 +19,13 @@ const ContactMe = () => {
 
   return (
     <div className="relative h-screen flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="title">Contact</h3>
+      <h2 className="title">Contact</h2>
 
       <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+        <h3 className="text-4xl font-semibold text-center">
           I have got just what you need.{" "}
           <span className="decoration-primary/50 underline">Lets Talk.</span>
-        </h4>
+        </h3>
 
         <div className="space-y-10">
           <div className="flex-center space-x-5 text-2xl">

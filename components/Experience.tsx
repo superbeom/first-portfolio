@@ -10,7 +10,7 @@ interface Props {
 const Experience = ({ experiences }: Props) => {
   return (
     <MotionContainer className="motion-container max-w-full text-left overflow-hidden">
-      <h3 className="title">Experience</h3>
+      <h2 className="title">Experience</h2>
 
       <div
         className="w-full flex space-x-5 overflow-x-scroll p-10
