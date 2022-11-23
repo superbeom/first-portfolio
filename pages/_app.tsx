@@ -16,11 +16,14 @@ import { getSocialsApi } from "@/lib/fetch";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isReady, setIsReady] = useState<boolean>(false);
+  const [activeId, setActiveId] = useState<string>("hero");
   const [socials, setSocials] = useState<Social[]>([]);
+
+  let lastScrollTop = 0;
 
   const { title, theme, isMobile, updateTheme, updateIsMobile } = useStore();
 
-  const detectResize = () => {
+  const detectResize = useDebounce(() => {
     const windowWidth = window.innerWidth;
 
     if (windowWidth <= 425) {
@@ -28,6 +31,41 @@ const App = ({ Component, pageProps }: AppProps) => {
     } else {
       updateIsMobile(false);
     }
+  });
+
+  const detectScroll = (sections: NodeListOf<HTMLElement>) => {
+    if (sections.length === 0) return;
+
+    const scrollY = window.scrollY;
+
+    let changePoint = 0;
+    if (scrollY > lastScrollTop) {
+      changePoint = isMobile ? 150 : 300; // Down Scroll
+    } else {
+      changePoint = isMobile ? 450 : 600; // Up Scroll
+    }
+
+    lastScrollTop = scrollY;
+
+    sections.forEach((section) => {
+      const sectionTop =
+        section.getBoundingClientRect().top + window.scrollY - changePoint;
+
+      const sectionId = section.id;
+      const sectionHeight = section.offsetHeight;
+      const sectionClassName = document.getElementById(sectionId)?.className;
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        if (!sectionClassName?.includes("active")) {
+          document.getElementById(sectionId)?.classList.add("active");
+          setActiveId(sectionId);
+        }
+      } else {
+        if (sectionClassName?.includes("active")) {
+          document.getElementById(sectionId)?.classList.remove("active");
+        }
+      }
+    });
   };
 
   const preLoad = useDebounce(async () => {
@@ -53,6 +91,21 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     return () => window.removeEventListener("resize", detectResize);
   }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(
+      "section[id]"
+    ) as NodeListOf<HTMLElement>;
+
+    window.addEventListener(
+      "scroll",
+      useDebounce(() => detectScroll(sections))
+    );
+
+    return () => {
+      () => window.addEventListener("scroll", () => detectScroll(sections));
+    };
+  }, [isReady, isMobile]);
 
   if (!isReady) {
     return <Loader />;
@@ -81,7 +134,13 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} socials={socials} />
       </main>
 
-      <section>{isMobile ? <MobilePanel /> : <Panel />}</section>
+      <section>
+        {isMobile ? (
+          <MobilePanel activeId={activeId} />
+        ) : (
+          <Panel activeId={activeId} />
+        )}
+      </section>
     </div>
   );
 };

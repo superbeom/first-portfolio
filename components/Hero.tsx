@@ -34,6 +34,7 @@ const Hero = ({ user, socials }: Props) => {
         alt="profile"
         width={128}
         height={128}
+        priority
       />
 
       <div className="z-20">

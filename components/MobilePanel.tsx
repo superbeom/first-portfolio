@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { smoothScroll } from "@/utils";
 import sections from "@/constants/sections";
@@ -6,11 +6,12 @@ import { position } from "@/constants/styles";
 
 import { MotionNav } from "@/components";
 
-const MobilePanel = () => {
-  const [target, setTarget] = useState<string>("hero");
+interface Props {
+  activeId: string;
+}
 
+const MobilePanel = ({ activeId }: Props) => {
   const hadleClick = (tartgetId: string) => {
-    setTarget(tartgetId);
     smoothScroll(tartgetId);
   };
 
@@ -24,7 +25,7 @@ const MobilePanel = () => {
           <div
             key={section.id}
             className={`${
-              target === section.id && "text-primary"
+              activeId === section.id && "text-primary"
             } text-content opacity-80`}
             onClick={() => hadleClick(section.id)}
           >

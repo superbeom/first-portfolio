@@ -46,8 +46,8 @@ const Home: NextPage<Props> = ({
   }
 
   return (
-    <div className="scroll-layout">
-      <section id="hero" className="snap-start">
+    <div className="overflow-x-hidden">
+      <section id="hero" className="snap-start active">
         <Hero user={user} socials={socials} />
       </section>
 
