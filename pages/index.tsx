@@ -50,7 +50,7 @@ const Home: NextPage<Props> = ({ user, experiences, projects, socials }) => {
       </section>
 
       <section id="contact">
-        <ContactMe />
+        <ContactMe user={user} />
       </section>
     </div>
   );
