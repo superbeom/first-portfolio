@@ -22,7 +22,7 @@ module.exports = {
       keyframes: {
         "opposite-ping": {
           "0%": {
-            transform: "scale(-2)",
+            transform: "scale(-1)",
             opacity: 0,
           },
         },
