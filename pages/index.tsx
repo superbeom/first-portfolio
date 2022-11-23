@@ -29,27 +29,27 @@ const Home: NextPage<Props> = ({ user, experiences, projects, socials }) => {
 
   return (
     <div className="overflow-x-hidden">
-      <section id="hero" className="snap-start active">
+      <section id="hero" className="active">
         <Hero user={user} socials={socials} />
       </section>
 
-      <section id="about" className="snap-center">
+      <section id="about">
         <About user={user} />
       </section>
 
-      <section id="experience" className="snap-center">
+      <section id="experience">
         <Experience experiences={experiences} />
       </section>
 
-      <section id="skills" className="snap-start">
+      <section id="skills">
         <Skills />
       </section>
 
-      <section id="projects" className="snap-start">
+      <section id="projects">
         <Projects projects={projects} />
       </section>
 
-      <section id="contact" className="snap-start">
+      <section id="contact">
         <ContactMe />
       </section>
     </div>
