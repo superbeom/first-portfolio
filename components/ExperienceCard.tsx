@@ -31,21 +31,21 @@ const ExperienceCard = ({ experience }: Props) => {
         <div className="flex space-x-2 my-2">
           <Image
             className="w-10 h-10 ball"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
+            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
             alt=""
             width={40}
             height={40}
           />
           <Image
             className="w-10 h-10 ball"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
+            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
             alt=""
             width={40}
             height={40}
           />
           <Image
             className="w-10 h-10 ball"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
+            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
             alt=""
             width={40}
             height={40}

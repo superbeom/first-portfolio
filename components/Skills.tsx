@@ -1,34 +1,20 @@
 import React from "react";
 
+import skills from "@/constants/skills";
 import { MotionContainer, Skill } from "@/components";
 
 const Skills = () => {
   return (
     <MotionContainer
-      className="relative flex flex-col text-center md:text-left 
-    xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center
-    items-center xl:space-y-0 mx-auto"
+      className="relative flex-center flex-col
+      max-w-[2000px] min-h-screen space-y-20 mx-auto"
     >
       <h3 className="title">Skills</h3>
 
-      <h3
-        className="absolute top-36 uppercase tracking-[3px]
-      text-gray-500 text-sm"
-      >
-        Hover over a skill for currency profieciency
-      </h3>
-
-      <div className="grid grid-cols-4 gap-5">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-5 w-[80%]">
+        {skills.map((skill) => (
+          <Skill key={skill.name} skill={skill} />
+        ))}
       </div>
     </MotionContainer>
   );

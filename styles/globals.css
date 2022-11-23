@@ -64,7 +64,10 @@ a {
     @apply cursor-pointer;
   }
   .title {
-    @apply absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl;
+    @apply absolute top-14 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl;
+  }
+  .sub-title {
+    @apply title top-36 tracking-[3px] text-sm;
   }
   .hero-button {
     @apply px-6 py-2 ball uppercase

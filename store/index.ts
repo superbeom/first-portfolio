@@ -13,7 +13,7 @@ interface StoreState {
 const useStore = create<StoreState>((set) => ({
   title: "Portfolio",
   theme: "light",
-  isMobile: false,
+  isMobile: true,
 
   updateTitle: (newTitle: string) => set(() => ({ title: newTitle })),
   updateTheme: (newTheme: string) => set(() => ({ theme: newTheme })),
