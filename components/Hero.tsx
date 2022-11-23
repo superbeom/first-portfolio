@@ -25,7 +25,7 @@ const Hero = ({ user, socials }: Props) => {
   });
 
   return (
-    <div className="min-h-screen flex-center flex-col space-y-8 text-center overflow-hidden">
+    <div className="layout flex-center flex-col space-y-8 text-center overflow-hidden">
       <Circles />
 
       <Image

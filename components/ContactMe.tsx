@@ -18,7 +18,7 @@ const ContactMe = () => {
   };
 
   return (
-    <div className="relative h-screen flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+    <div className="relative layout flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
       <h2 className="title">Contact</h2>
 
       <div className="flex flex-col space-y-10">

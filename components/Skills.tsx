@@ -7,7 +7,7 @@ const Skills = () => {
   return (
     <MotionContainer
       className="relative flex-center flex-col
-      max-w-[2000px] min-h-screen space-y-20 mx-auto"
+      max-w-[2000px] min-h-screen h-full space-y-20 mx-auto"
     >
       <h2 className="title">Skills</h2>
 

@@ -11,7 +11,7 @@ interface Props {
 const Projects = ({ projects }: Props) => {
   return (
     <MotionContainer
-      className="relative h-screen flex flex-col overflow-hidden
+      className="relative min-h-screen h-full flex flex-col overflow-hidden
     text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0"
     >
       <h2 className="title">Projects</h2>

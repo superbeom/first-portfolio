@@ -9,7 +9,7 @@ interface Props {
 
 const Experience = ({ experiences }: Props) => {
   return (
-    <MotionContainer className="motion-container max-w-full text-left overflow-hidden">
+    <MotionContainer className="motion-container min-h-screen h-full max-w-full text-left overflow-hidden">
       <h2 className="title">Experience</h2>
 
       <div

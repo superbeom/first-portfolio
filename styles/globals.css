@@ -53,6 +53,9 @@ a {
   .flex-center {
     @apply flex justify-center items-center;
   }
+  .layout {
+    @apply min-h-screen h-full;
+  }
   .motion-container {
     @apply relative flex flex-col lg:flex-row h-screen
            justify-evenly items-center px-10 mx-auto;
