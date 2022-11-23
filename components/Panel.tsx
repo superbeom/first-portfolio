@@ -18,7 +18,7 @@ const Panel = ({ activeId }: Props) => {
   return (
     <MotionNav
       position={position}
-      className="fixed top-24 right-7 flex flex-col items-center
+      className="fixed top-24 right-0 flex flex-col items-center
                  space-y-5 py-5 rounded-sm z-10"
     >
       {sections.map((section) => (

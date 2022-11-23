@@ -28,7 +28,7 @@ const LeftNav = ({ socials }: Props) => {
   return (
     <MotionNav
       position={-position}
-      className="fixed left-0 flex flex-col items-center py-2 mx-2 my-3 z-10"
+      className="fixed left-3 flex flex-col items-center py-2 mx-2 my-3 z-10"
     >
       {!isMobile && (
         <>

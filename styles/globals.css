@@ -25,6 +25,10 @@ a {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 /* Themes */
 @layer base {
   .light {
@@ -64,7 +68,7 @@ a {
   }
   .hero-button {
     @apply px-6 py-2 ball uppercase
-           text-xs text-gray-500 tracking-widest transition-all
+           text-sm text-gray-500 tracking-widest transition-all
            hover:border-primary-80 hover:text-primary-80;
   }
   .contact-input {
