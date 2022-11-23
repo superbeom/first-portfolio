@@ -45,17 +45,6 @@ export const getProjectsApi = async () => {
   return apiResult(response);
 };
 
-export const getSkillsApi = async () => {
-  const response = await fetch("http://localhost:3000/api/getSkills", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  return apiResult(response);
-};
-
 export const getSocialsApi = async () => {
   const response = await fetch("http://localhost:3000/api/getSocials", {
     method: "POST",

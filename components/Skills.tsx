@@ -1,13 +1,8 @@
 import React from "react";
 
-import { Skill as SkillType } from "@/types";
 import { MotionContainer, Skill } from "@/components";
 
-interface Props {
-  skills: SkillType[];
-}
-
-const Skills = ({ skills }: Props) => {
+const Skills = () => {
   return (
     <MotionContainer
       className="relative flex flex-col text-center md:text-left 

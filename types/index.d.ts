@@ -17,19 +17,9 @@ export interface Experience {
   company: string;
   companyImage: string;
   stillWorkingHere: boolean;
-  technologies: Skill[];
   points: string[];
   startedDate: string;
   endedDate: string;
-}
-
-export interface Skill {
-  id: string;
-  name: string;
-  image: string;
-  progress: number;
-  experienceId: string;
-  projectId: string;
 }
 
 export interface Project {
@@ -37,7 +27,6 @@ export interface Project {
   name: string;
   image: string;
   summary: string;
-  technologies: Skills[];
   url: string;
 }
 
