@@ -21,7 +21,7 @@ const ContactMe = ({ user }: Props) => (
         talk to me!
       </h3>
 
-      <div className="space-y-10 md:space-y-20">
+      <div className="space-y-10 md:space-y-14">
         <div className="contact-detail">
           <FaPhoneAlt className="contact-icon" />
           <p>{user.phone}</p>
