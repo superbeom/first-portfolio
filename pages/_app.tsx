@@ -11,7 +11,14 @@ import useDebounce from "@/hooks/useDebounce";
 
 import { THEME, LIGHT, DARK } from "@/constants/strings";
 
-import { LeftNav, RightNav, Panel, MobilePanel, Loader } from "@/components";
+import {
+  LeftNav,
+  RightNav,
+  Panel,
+  MobilePanel,
+  Loader,
+  ChannelService,
+} from "@/components";
 import { getSocialsApi } from "@/lib/fetch";
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -85,11 +92,22 @@ const App = ({ Component, pageProps }: AppProps) => {
   });
 
   useEffect(() => {
+    const channelTalk = new ChannelService();
+
     preLoad();
+
+    channelTalk.boot({
+      pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_PLUGIN_KEY,
+      zIndex: 10,
+      language: "en",
+    });
 
     window.addEventListener("resize", detectResize);
 
-    return () => window.removeEventListener("resize", detectResize);
+    return () => {
+      window.removeEventListener("resize", detectResize);
+      channelTalk.shutdown();
+    };
   }, []);
 
   useEffect(() => {
