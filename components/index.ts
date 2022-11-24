@@ -16,5 +16,6 @@ export { default as MotionContainer } from "./MotionContainer";
 export { default as ExperienceCard } from "./ExperienceCard";
 export { default as Skill } from "./Skill";
 export { default as Invalid } from "./Invalid";
+export { default as Timeline } from "./Timeline";
 
 export { default as ChannelService } from "./channelTalk/ChannelService";

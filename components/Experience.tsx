@@ -1,28 +1,31 @@
 import React from "react";
 
 import { Experience } from "@/types";
-import { MotionContainer, ExperienceCard } from "@/components";
+import { ExperienceCard, Timeline } from "@/components";
 
 interface Props {
   experiences: Experience[];
 }
 
-const Experience = ({ experiences }: Props) => {
-  return (
-    <MotionContainer className="motion-container min-h-screen h-full max-w-full text-left overflow-hidden">
-      <h2 className="title">Experience</h2>
+const Experience = ({ experiences }: Props) => (
+  <div
+    className="motion-container min-h-screen h-full max-w-full
+      text-left overflow-hidden flex flex-col"
+  >
+    <h2 className="title">Experience</h2>
 
-      <div
-        className="w-full flex space-x-5 overflow-x-scroll p-10
-      snap-x snap-mandatory mt-32 custom-scrollbar"
-      >
-        <ExperienceCard experience={experiences[0]} />
-        <ExperienceCard experience={experiences[0]} />
-        <ExperienceCard experience={experiences[0]} />
-        <ExperienceCard experience={experiences[0]} />
-      </div>
-    </MotionContainer>
-  );
-};
+    <div className="relative flex-center flex-col w-[80%] mt-24 pb-10">
+      <Timeline />
+
+      {experiences.map((experience, index) => (
+        <ExperienceCard
+          key={experience.id}
+          experience={experience}
+          left={index % 2 === 0}
+        />
+      ))}
+    </div>
+  </div>
+);
 
 export default Experience;

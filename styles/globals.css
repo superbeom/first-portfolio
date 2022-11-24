@@ -69,7 +69,8 @@ a {
     @apply cursor-pointer;
   }
   .title {
-    @apply absolute top-14 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl;
+    @apply absolute top-14 right-[50%] translate-x-[55%] uppercase
+           tracking-[20px] text-gray-500 text-lg sm:text-2xl;
   }
   .circle {
     @apply absolute border border-background-light ball mt-52;
@@ -81,6 +82,22 @@ a {
   }
   .about-role {
     @apply uppercase text-gray-500 tracking-[2px];
+  }
+  .card-container {
+    @apply overflow-hidden flex-center w-screen md:w-[80%]
+           pl-[25vw] md:pl-3 lg:pl-0 pr-[5vw] md:pr-0 mt-20;
+  }
+  .card {
+    @apply relative w-full lg:w-[40%] flex bg-primary-80 rounded-xl p-2
+           before:absolute before:top-[13px]
+           before:border-y-[13px] before:border-y-transparent;
+  }
+  .card-left {
+    @apply before:right-[100%] before:border-r-[13px] before:border-r-primary-80 lg:before:border-r-0
+           lg:before:left-[100%] lg:before:border-l-[26px] lg:before:border-l-primary-80;
+  }
+  .card-right {
+    @apply before:right-[100%] before:border-r-[13px] lg:before:border-r-[26px] before:border-r-primary-80;
   }
   .contact-detail {
     @apply flex-center space-x-5 text-xl md:text-2xl;

@@ -1,71 +1,63 @@
 import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import moment from "moment";
 
 import { Experience } from "@/types";
 
 interface Props {
   experience: Experience;
+  left: boolean;
 }
 
-const ExperienceCard = ({ experience }: Props) => {
-  return (
-    <article
-      className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
-    w-[500px] md:w-[600px] xl:w-[900px]
-    snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40
-    pointer transition-opacity duration-200 overflow-hidden"
+const cardVariants: Variants = {
+  offscreen: {
+    y: 500,
+  },
+  onscreen: {
+    y: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 0.8,
+    },
+  },
+};
+
+const ExperienceCard = ({ experience, left }: Props) => (
+  <motion.div
+    initial="offscreen"
+    whileInView="onscreen"
+    viewport={{ amount: 0.8 }}
+    className={`card-container ${
+      left ? "justify-start" : "justify-start lg:justify-end"
+    }`}
+  >
+    <motion.div
+      variants={cardVariants}
+      className={`card ${left ? "card-left" : "card-right"}`}
     >
       <motion.img
-        initial={{ y: -100, opacity: 0 }}
-        transition={{ duration: 1.2 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        className="w-32 h-32 ball xl:w-[200px] xl:h-[200px] object-cover object-center"
+        className="w-16 h-16 md:w-20 md:h-20 p-2 rounded-3xl"
         src={experience.companyImage}
+        alt="company image"
       />
 
-      <div className="px-0 md:px-10">
-        <h4 className="text-4xl font-light">{experience.jobTitle}</h4>
-        <p className="font-bold text-2xl mt-1">{experience.company}</p>
-
-        <div className="flex space-x-2 my-2">
-          <Image
-            className="w-10 h-10 ball"
-            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
-            alt=""
-            width={40}
-            height={40}
-          />
-          <Image
-            className="w-10 h-10 ball"
-            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
-            alt=""
-            width={40}
-            height={40}
-          />
-          <Image
-            className="w-10 h-10 ball"
-            src="https://res.cloudinary.com/dycjbf6ub/image/upload/v1669179357/supabase-logo_nxnel5.png"
-            alt=""
-            width={40}
-            height={40}
-          />
-        </div>
-
-        <p className="uppercase py-5 text-gray-300">
-          Started work... - Ended...
+      <div className="ml-2 md:ml-3">
+        <h3 className="text-background md:text-lg font-bold">
+          {experience.company}
+        </h3>
+        <h4 className="text-background text-sm md:text-base font-medium">
+          {experience.jobTitle}
+        </h4>
+        <p className="text-background text-xs md:text-sm">
+          {moment(experience.startedDate).format("MMM YYYY")} -{" "}
+          {experience.stillWorkingHere
+            ? "Present"
+            : moment(experience.endedDate).format("MMM YYYY")}
         </p>
-
-        <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-        </ul>
       </div>
-    </article>
-  );
-};
+    </motion.div>
+  </motion.div>
+);
 
 export default ExperienceCard;
