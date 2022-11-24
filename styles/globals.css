@@ -86,7 +86,7 @@ a {
     @apply flex-center space-x-5 text-xl md:text-2xl;
   }
   .contact-icon {
-    @apply text-primary md:w-6 md:h-6 animate-pulse;
+    @apply text-primary-80 md:w-6 md:h-6;
   }
   .custom-scrollbar {
     @apply scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary-80;
