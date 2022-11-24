@@ -26,8 +26,7 @@ model Experience {
   jobTitle String
   company String
   companyImage String
-  stillWorkingHere Boolean
-  points String[]
+  stillWorkingHere Boolean @default(false)
   startedDate DateTime
   endedDate DateTime
 }

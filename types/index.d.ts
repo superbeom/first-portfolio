@@ -17,7 +17,6 @@ export interface Experience {
   company: string;
   companyImage: string;
   stillWorkingHere: boolean;
-  points: string[];
   startedDate: string;
   endedDate: string;
 }
