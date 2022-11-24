@@ -37,6 +37,7 @@ a {
     --background: rgb(240, 240, 240);
     --background-light: rgb(181, 183, 183);
     --content: rgb(54, 54, 54);
+    --content-light: rgb(74, 74, 74);
     --content-10: rgba(54, 54, 54, 0.05);
   }
 
@@ -46,6 +47,7 @@ a {
     --background: rgb(54, 54, 54);
     --background-light: rgb(74, 72, 72);
     --content: rgb(240, 240, 240);
+    --content-light: rgb(220, 220, 220);
     --content-10: rgba(240, 240, 240, 0.02);
   }
 }
@@ -83,9 +85,17 @@ a {
   .about-role {
     @apply uppercase text-gray-500 tracking-[2px];
   }
+  .timeline {
+    @apply absolute top-10 left-0 lg:left-[50%] lg:translate-x-[50%] w-2 h-full bg-primary-80 ball;
+  }
+  .timedot {
+    @apply absolute w-4 h-4 left-0 lg:left-[50%] ball bg-content-light
+           -translate-x-[23%] lg:translate-x-[2%]
+           -translate-y-3 md:-translate-y-5;
+  }
   .card-container {
     @apply flex-center w-screen md:w-[80%] overflow-hidden
-           pl-[25vw] md:pl-3 lg:pl-0 pr-[5vw] md:pr-0 mt-20;
+           pl-[28vw] md:pl-3 lg:pl-0 pr-[4vw] md:pr-0 mt-20;
   }
   .card {
     @apply relative w-full lg:w-[40%] flex bg-primary-80 rounded-xl p-2

@@ -17,6 +17,7 @@ module.exports = {
           10: "var(--content-10)",
           DEFAULT: "var(--content)",
         },
+        "content-light": "var(--content-light)",
       },
       keyframes: {
         "opposite-ping": {

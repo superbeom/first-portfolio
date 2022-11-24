@@ -32,6 +32,8 @@ const ExperienceCard = ({ experience, left }: Props) => (
       left ? "justify-start" : "justify-start lg:justify-end"
     }`}
   >
+    <div className="timedot" />
+
     <motion.div
       variants={cardVariants}
       className={`card ${left ? "card-left" : "card-right"}`}
