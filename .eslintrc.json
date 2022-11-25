@@ -4,6 +4,7 @@
     "react-hooks/exhaustive-deps": "warn"
   },
   "parserOptions": {
+    "sourceType": "module",
     "ecmaVersion": "latest"
   }
 }
