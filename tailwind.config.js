@@ -18,6 +18,8 @@ module.exports = {
           DEFAULT: "var(--content)",
         },
         "content-light": "var(--content-light)",
+        "dark-background-50": "rgba(54, 54, 54, 0.5)",
+        "white-light": "#F0F0F0",
       },
       keyframes: {
         "opposite-ping": {

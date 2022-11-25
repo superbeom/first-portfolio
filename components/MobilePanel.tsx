@@ -18,7 +18,7 @@ const MobilePanel = ({ activeId }: Props) => {
   return (
     <MotionNav
       position={position}
-      className="fixed bottom-7 flex-center w-full rounded-sm z-10"
+      className="fixed bottom-7 flex-center w-full rounded-sm z-30"
     >
       <div className="flex justify-around items-center w-[80%] p-4 bg-content-10 ball">
         {sections.map((section) => (

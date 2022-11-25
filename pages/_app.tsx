@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
@@ -28,15 +30,27 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   let lastScrollTop = 0;
 
-  const { title, theme, isMobile, updateTheme, updateIsMobile } = useStore();
+  const {
+    title,
+    theme,
+    isMobile,
+    updateTheme,
+    updateIsMobile,
+    updateIsDesktop,
+  } = useStore();
 
   const detectResize = useDebounce(() => {
     const windowWidth = window.innerWidth;
 
     if (windowWidth <= 425) {
       updateIsMobile(true);
+      updateIsDesktop(false);
+    } else if (windowWidth < 1024) {
+      updateIsMobile(false);
+      updateIsDesktop(false);
     } else {
       updateIsMobile(false);
+      updateIsDesktop(true);
     }
   });
 
