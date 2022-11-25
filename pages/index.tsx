@@ -1,9 +1,20 @@
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
 
-import { User, Experience as ExperienceType, Project, Social } from "@/types";
+import {
+  User,
+  Experience as ExperienceType,
+  Project,
+  Skill,
+  Social,
+} from "@/types";
 
-import { getUserApi, getExperiencesApi, getProjectsApi } from "@/lib/fetch";
+import {
+  getUserApi,
+  getExperiencesApi,
+  getProjectsApi,
+  getSkillsApi,
+} from "@/lib/fetch";
 
 import {
   Hero,
@@ -19,10 +30,17 @@ interface Props {
   user: User;
   experiences: ExperienceType[];
   projects: Project[];
+  skills: Skill[];
   socials: Social[];
 }
 
-const Home: NextPage<Props> = ({ user, experiences, projects, socials }) => {
+const Home: NextPage<Props> = ({
+  user,
+  experiences,
+  projects,
+  skills,
+  socials,
+}) => {
   if (!user) {
     return <Invalid />;
   }
@@ -42,7 +60,7 @@ const Home: NextPage<Props> = ({ user, experiences, projects, socials }) => {
       </section>
 
       <section id="skills">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects">
@@ -62,12 +80,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const user = await getUserApi();
   const experiences = await getExperiencesApi();
   const projects = await getProjectsApi();
+  const skills = await getSkillsApi();
 
   return {
     props: {
       user,
       experiences,
       projects,
+      skills,
     },
   };
 };

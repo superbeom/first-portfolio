@@ -14,7 +14,7 @@ const apiBooleanResult = async (status: number) => {
 
 export const getUserApi = async () => {
   const response = await fetch("http://localhost:3000/api/getUser", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
@@ -25,7 +25,18 @@ export const getUserApi = async () => {
 
 export const getExperiencesApi = async () => {
   const response = await fetch("http://localhost:3000/api/getExperiences", {
-    method: "POST",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return apiResult(response);
+};
+
+export const getSkillsApi = async () => {
+  const response = await fetch("http://localhost:3000/api/getSkills", {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
@@ -36,7 +47,7 @@ export const getExperiencesApi = async () => {
 
 export const getProjectsApi = async () => {
   const response = await fetch("http://localhost:3000/api/getProjects", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
@@ -47,7 +58,7 @@ export const getProjectsApi = async () => {
 
 export const getSocialsApi = async () => {
   const response = await fetch("http://localhost:3000/api/getSocials", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },

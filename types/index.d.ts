@@ -21,6 +21,12 @@ export interface Experience {
   endedDate: string;
 }
 
+export interface Skill {
+  id: string;
+  name: string;
+  url: string;
+}
+
 export interface Project {
   id: string;
   name: string;
