@@ -2,9 +2,5 @@
   "plugins": ["react-hooks"],
   "rules": {
     "react-hooks/exhaustive-deps": "warn"
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": "latest"
   }
 }
