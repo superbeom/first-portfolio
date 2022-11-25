@@ -6,7 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const user = await prismaClient.user.findFirst();
+  try {
+    const user = await prismaClient.user.findFirst();
 
-  res.status(200).json(user);
+    res.status(200).json(user);
+  } catch (error: any) {
+    res.status(500).json(error.message);
+  }
 }

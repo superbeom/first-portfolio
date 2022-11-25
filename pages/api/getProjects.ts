@@ -6,7 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const projects = await prismaClient.project.findMany();
+  try {
+    const projects = await prismaClient.project.findMany();
 
-  res.status(200).json(projects);
+    res.status(200).json(projects);
+  } catch (error: any) {
+    res.status(500).json(error.message);
+  }
 }

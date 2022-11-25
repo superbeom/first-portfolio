@@ -19,12 +19,14 @@ import {
   Panel,
   MobilePanel,
   Loader,
+  Invalid,
   ChannelService,
 } from "@/components";
 import { getSocialsApi } from "@/lib/fetch";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isReady, setIsReady] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   const [activeId, setActiveId] = useState<string>("hero");
   const [socials, setSocials] = useState<Social[]>([]);
 
@@ -95,6 +97,12 @@ const App = ({ Component, pageProps }: AppProps) => {
       updateTheme(localTheme === LIGHT ? LIGHT : DARK);
 
       const parsedSocials = await getSocialsApi();
+
+      if (!parsedSocials) {
+        setError(true);
+        return;
+      }
+
       setSocials(parsedSocials);
 
       detectResize();
@@ -141,6 +149,10 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   if (!isReady) {
     return <Loader />;
+  }
+
+  if (error) {
+    return <Invalid />;
   }
 
   return (

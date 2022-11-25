@@ -6,7 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const socials = await prismaClient.social.findMany();
+  try {
+    const socials = await prismaClient.social.findMany();
 
-  res.status(200).json(socials);
+    res.status(200).json(socials);
+  } catch (error: any) {
+    res.status(500).json(error.message);
+  }
 }
