@@ -27,7 +27,7 @@ const About = ({ user }: Props) => (
     <div className="space-y-10 px-0 mt-8 sm:mt-0 sm:px-10">
       <div className="space-y-5">
         <h3 className="text-3xl sm:text-4xl font-semibold tracking-wider">
-          Hey, I'm{" "}
+          Hey, I&apos;m{" "}
           <span className="underline decoration-primary underline-offset-8">
             {user.name}
           </span>
