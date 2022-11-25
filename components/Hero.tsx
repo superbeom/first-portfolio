@@ -43,7 +43,7 @@ const Hero = ({ user, socials }: Props) => {
         </h4>
 
         <h3 className="text-5xl lg:text-6xl font-semibold px-10">
-          {/* <span>{text}</span> */}
+          <span>{text}</span>
           <Cursor cursorColor="var(--primary)" />
         </h3>
 
