@@ -56,7 +56,11 @@ const App = ({ Component, pageProps }: AppProps) => {
     }
   });
 
-  const detectScroll = (sections: NodeListOf<HTMLElement>) => {
+  const detectScroll = useDebounce(() => {
+    const sections = document.querySelectorAll(
+      "section[id]"
+    ) as NodeListOf<HTMLElement>;
+
     if (sections.length === 0) return;
 
     const scrollY = window.scrollY;
@@ -89,7 +93,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         }
       }
     });
-  };
+  });
 
   const preLoad = useDebounce(async () => {
     try {
@@ -125,27 +129,14 @@ const App = ({ Component, pageProps }: AppProps) => {
     });
 
     window.addEventListener("resize", detectResize);
+    window.addEventListener("scroll", detectScroll);
 
     return () => {
       window.removeEventListener("resize", detectResize);
+      window.addEventListener("scroll", detectScroll);
       channelTalk.shutdown();
     };
   }, []);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll(
-      "section[id]"
-    ) as NodeListOf<HTMLElement>;
-
-    window.addEventListener(
-      "scroll",
-      useDebounce(() => detectScroll(sections))
-    );
-
-    return () => {
-      () => window.addEventListener("scroll", () => detectScroll(sections));
-    };
-  }, [isReady, isMobile]); // First loaded > 'sections' is [] > isReady: true > useEffect re-excute
 
   if (!isReady) {
     return <Loader />;
