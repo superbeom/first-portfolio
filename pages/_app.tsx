@@ -111,7 +111,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
       detectResize();
     } catch (error: any) {
-      console.log("Error @preLoad - Leftnav: ", error.message);
+      console.log("Error @preLoad - App: ", error.message);
     } finally {
       setTimeout(() => setIsReady(true), 100);
     }
@@ -124,7 +124,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     channelTalk.boot({
       pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_PLUGIN_KEY,
-      zIndex: 10,
+      zIndex: 50,
       language: "en",
     });
 
