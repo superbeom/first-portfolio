@@ -52,10 +52,7 @@ const ExperienceCard = ({ experience, left }: Props) => (
           {experience.jobTitle}
         </h4>
         <p className="text-background text-xs md:text-sm">
-          {moment(experience.startedDate).format("MMM YYYY")} -{" "}
-          {experience.stillWorkingHere
-            ? "Present"
-            : moment(experience.endedDate).format("MMM YYYY")}
+          {experience.startedDate} - {experience.endedDate}
         </p>
       </div>
     </motion.div>

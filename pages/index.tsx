@@ -1,5 +1,7 @@
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
+import { Prisma } from "@prisma/client";
+import moment from "moment";
 
 import {
   User,
@@ -9,12 +11,7 @@ import {
   Social,
 } from "@/types";
 
-import {
-  getUserApi,
-  getExperiencesApi,
-  getProjectsApi,
-  getSkillsApi,
-} from "@/lib/fetch";
+import prismaClient from "@/lib/prisma";
 
 import {
   Hero,
@@ -27,7 +24,7 @@ import {
 } from "@/components";
 
 interface Props {
-  user: User;
+  user: User | null;
   experiences: ExperienceType[];
   projects: Project[];
   skills: Skill[];
@@ -77,15 +74,27 @@ const Home: NextPage<Props> = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const user = await getUserApi();
-  const experiences = await getExperiencesApi();
-  const projects = await getProjectsApi();
-  const skills = await getSkillsApi();
+  const user = await prismaClient.user.findFirst();
+  const experiences = await prismaClient.experience.findMany({
+    orderBy: {
+      endedDate: Prisma.SortOrder.desc,
+    },
+  });
+  const projects = await prismaClient.project.findMany();
+  const skills = await prismaClient.skill.findMany();
+
+  const formattedExperiences = experiences.map((experience) => ({
+    ...experience,
+    startedDate: moment(experience.startedDate).format("MMM YYYY"),
+    endedDate: experience.stillWorkingHere
+      ? "Present"
+      : moment(experience.endedDate).format("MMM YYYY"),
+  }));
 
   return {
     props: {
       user,
-      experiences,
+      experiences: formattedExperiences,
       projects,
       skills,
     },
