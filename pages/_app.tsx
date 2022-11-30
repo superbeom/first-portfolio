@@ -155,6 +155,8 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="This is a portfolio example" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
       </Head>
 
       <LeftNav socials={socials} />
