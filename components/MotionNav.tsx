@@ -21,7 +21,7 @@ const transition = { duration: 1.5 };
 
 const MotionNav = ({ position, className, onClick, children }: Props) => {
   return (
-    <motion.div
+    <motion.nav
       initial={{
         ...initial,
         x: position,
@@ -32,7 +32,7 @@ const MotionNav = ({ position, className, onClick, children }: Props) => {
       onClick={onClick}
     >
       {children}
-    </motion.div>
+    </motion.nav>
   );
 };
 

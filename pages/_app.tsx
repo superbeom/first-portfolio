@@ -157,25 +157,18 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <section>
-        <LeftNav socials={socials} />
-      </section>
-
-      <section>
-        <RightNav />
-      </section>
+      <LeftNav socials={socials} />
+      <RightNav />
 
       <main>
         <Component {...pageProps} socials={socials} />
       </main>
 
-      <section>
-        {isMobile ? (
-          <MobilePanel activeId={activeId} />
-        ) : (
-          <Panel activeId={activeId} />
-        )}
-      </section>
+      {isMobile ? (
+        <MobilePanel activeId={activeId} />
+      ) : (
+        <Panel activeId={activeId} />
+      )}
     </div>
   );
 };
