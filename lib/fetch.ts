@@ -6,6 +6,17 @@ const apiResult = async (response: Response) => {
   return result;
 };
 
+export const getTitleApi = async () => {
+  const response = await fetch("/api/getTitle", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return apiResult(response);
+};
+
 export const getSocialsApi = async () => {
   const response = await fetch("/api/getSocials", {
     method: "GET",

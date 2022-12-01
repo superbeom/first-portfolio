@@ -1,5 +1,6 @@
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import { Prisma } from "@prisma/client";
 import moment from "moment";
 
@@ -9,6 +10,7 @@ import {
   Project,
   Skill,
   Social,
+  Seo,
 } from "@/types";
 
 import prismaClient from "@/lib/prisma";
@@ -29,6 +31,7 @@ interface Props {
   projects: Project[];
   skills: Skill[];
   socials: Social[];
+  seo: Seo | null;
 }
 
 const Home: NextPage<Props> = ({
@@ -37,25 +40,50 @@ const Home: NextPage<Props> = ({
   projects,
   skills,
   socials,
+  seo,
 }) => {
   if (!user) {
     return <Invalid />;
   }
 
   return (
-    <div className="overflow-x-hidden">
-      <Hero user={user} socials={socials} />
+    <>
+      <Head>
+        <meta name="description" content="Awesome portfolio" />
+        <meta name="subject" content={seo?.subject} />
+        <meta name="author" content={seo?.author} />
+        <meta name="publisher" content={seo?.author} />
+        <meta name="keywords" content={seo?.keywords} />
+        <meta name="robots" content="all" />
 
-      <About user={user} />
+        <meta property="og:title" content={seo?.title} />
+        <meta property="og:image" content={seo?.image} />
+        <meta property="og:url" content={seo?.url} />
+        <meta property="og:description" content={seo?.description} />
+        <meta property="og:type" content="website" />
 
-      <Experience experiences={experiences} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seo?.title} />
+        <meta name="twitter:image" content={seo?.image} />
+        <meta name="twitter:description" content={seo?.description} />
 
-      <Skills skills={skills} />
+        <link rel="canonical" href={seo?.url} />
+      </Head>
 
-      <Projects projects={projects} />
+      <div className="overflow-x-hidden">
+        <Hero user={user} socials={socials} />
 
-      <ContactMe user={user} />
-    </div>
+        <About user={user} />
+
+        <Experience experiences={experiences} />
+
+        <Skills skills={skills} />
+
+        <Projects projects={projects} />
+
+        <ContactMe user={user} />
+      </div>
+    </>
   );
 };
 
@@ -70,6 +98,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   const projects = await prismaClient.project.findMany();
   const skills = await prismaClient.skill.findMany();
+  const seo = await prismaClient.seo.findFirst();
 
   const formattedExperiences = experiences.map((experience) => ({
     ...experience,
@@ -85,6 +114,7 @@ export const getStaticProps: GetStaticProps = async () => {
       experiences: formattedExperiences,
       projects,
       skills,
+      seo,
     },
   };
 };

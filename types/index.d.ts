@@ -41,3 +41,14 @@ export interface Social {
   url: string;
   userId: string;
 }
+
+export interface Seo {
+  id: string;
+  author: string;
+  title: string;
+  description: string;
+  image: string;
+  subject: string;
+  keywords: string;
+  url: string;
+}

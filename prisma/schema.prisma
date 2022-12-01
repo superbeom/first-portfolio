@@ -52,3 +52,14 @@ model Social {
   user User @relation(fields: [userId], references: [id])
   userId String
 }
+
+model Seo {
+  id String @default(uuid()) @id
+  author String
+  title String
+  description String
+  image String
+  subject String
+  keywords String
+  url String
+}

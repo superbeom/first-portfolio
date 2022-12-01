@@ -21,24 +21,19 @@ import {
   Invalid,
   ChannelService,
 } from "@/components";
-import { getSocialsApi } from "@/lib/fetch";
+import { getTitleApi, getSocialsApi } from "@/lib/fetch";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [isReady, setIsReady] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [activeId, setActiveId] = useState<string>("hero");
   const [socials, setSocials] = useState<Social[]>([]);
+  const [title, setTitle] = useState("Awesome Website 🔥");
 
   let lastScrollTop = 0;
 
-  const {
-    title,
-    theme,
-    isMobile,
-    updateTheme,
-    updateIsMobile,
-    updateIsDesktop,
-  } = useStore();
+  const { theme, isMobile, updateTheme, updateIsMobile, updateIsDesktop } =
+    useStore();
 
   const detectResize = useDebounce(() => {
     const windowWidth = window.innerWidth;
@@ -99,14 +94,19 @@ const App = ({ Component, pageProps }: AppProps) => {
       const localTheme = localStorage.getItem(THEME) ?? DARK;
       updateTheme(localTheme === LIGHT ? LIGHT : DARK);
 
-      const parsedSocials = await getSocialsApi();
+      const fetchedTitle = await getTitleApi();
+      const fetchedSocials = await getSocialsApi();
 
-      if (!parsedSocials) {
+      if (fetchedTitle) {
+        setTitle(fetchedTitle);
+      }
+
+      if (!fetchedSocials) {
         setError(true);
         return;
       }
 
-      setSocials(parsedSocials);
+      setSocials(fetchedSocials);
 
       detectResize();
     } catch (error: any) {
@@ -154,7 +154,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="This is a portfolio example" />
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
       </Head>
 
