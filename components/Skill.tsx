@@ -22,6 +22,7 @@ const Skill = ({ skill }: Props) => {
         whileInView={{ opacity: 1 }}
         className="object-contain w-8 h-8 sm:w-12 sm:h-12 transition duration-300 ease-in-out"
         src={skill.url}
+        alt={skill.name}
       />
 
       <span>{skill.name}</span>

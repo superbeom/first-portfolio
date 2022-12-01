@@ -41,7 +41,7 @@ const ExperienceCard = ({ experience, left }: Props) => (
       <motion.img
         className="w-16 h-16 md:w-20 md:h-20 p-2 rounded-3xl"
         src={experience.companyImage}
-        alt="company image"
+        alt={experience.company}
       />
 
       <div className="ml-2 md:ml-3">

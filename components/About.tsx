@@ -23,6 +23,7 @@ const About = ({ user }: Props) => (
       whileInView={{ x: 0, opacity: 1 }}
       className="w-44 h-44 flex-shrink-0 mt-32 ball object-cover md:rounded-lg md:w-[300px] md:h-[400px] xl:w-[500px] xl:h-[600px]"
       src={user.image}
+      alt={user.name}
     />
 
     <div className="space-y-10 px-0 mt-8 sm:mt-0 sm:px-10">

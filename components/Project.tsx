@@ -51,7 +51,7 @@ const Project = ({ project }: Props) => {
     <div className="relative w-full flex-center flex-col mb-5 md:mb-10">
       <motion.img
         src={project.image}
-        alt="project image"
+        alt={project.name}
         className={`${width}`}
       />
 
