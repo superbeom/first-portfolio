@@ -8,17 +8,22 @@
 
 ## Ready for Start
 
-First - To run your own server, copy '.env.example' file to '.env' and update environment
+### 1. To run your own server, copy '.env.example' file to '.env' and update environment
 
 - .env > NEXT_PUBLIC_BASE_URL (Website url)
 - .env > DATABASE_URL (DB url)
 - .env > NEXT_PUBLIC_UPDATE_PAGE_DATE (Sitemap lastmod - whenever you add pages)
 
-Second - Update url at 'robots.txt'
+### 2. Push DB & Generate Prisma Client
+
+- Push DB > 'npx prisma db push'
+- Generate Prisma Client > 'npx prisma generate'
+
+### 3. Update url at 'robots.txt'
 
 - public > robots.txt > Sitemap
 
-Third - Update your 'sitemap.xml.tsx'
+### 4. Update your 'sitemap.xml.tsx'
 
 - pages > sitemap.xml.tsx > pageUrls
 
