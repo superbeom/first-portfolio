@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /api
+Sitemap: https://first-portfolio-ashy.vercel.app/sitemap.xml
