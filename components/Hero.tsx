@@ -25,11 +25,11 @@ const Hero = ({ user, socials }: Props) => {
   });
 
   return (
-    <div className="layout flex-center flex-col space-y-8 text-center overflow-hidden">
+    <div className="layout flex-center flex-col text-center overflow-hidden">
       <Circles />
 
       <Image
-        className="w-32 h-32 mx-auto ball object-cover"
+        className="w-32 h-32 mx-auto ball object-cover my-8"
         src={user.image}
         alt="profile"
         width={128}
@@ -42,33 +42,33 @@ const Hero = ({ user, socials }: Props) => {
           {user.role}
         </h4>
 
-        <h3 className="text-5xl lg:text-6xl font-semibold px-10">
+        <h3 className="text-4xl lg:text-6xl font-semibold">
           <span>{text}</span>
           <Cursor cursorColor="var(--primary)" />
         </h3>
-
-        {isMobile && (
-          <div className="w-[90vw] flex-center pt-5">
-            <div className="w-[90%]">
-              {socials.map((social) => {
-                return (
-                  <SocialIcon
-                    key={social.id}
-                    network={social.name}
-                    url={social.url}
-                    className="opacity-80"
-                    style={{
-                      color: socialColors[`${social.name}`],
-                    }}
-                    fgColor="currentColor"
-                    bgColor="transparent"
-                  />
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
+
+      {isMobile && (
+        <div className="w-[90vw] flex-center pt-5">
+          <div className="w-[90%]">
+            {socials.map((social) => {
+              return (
+                <SocialIcon
+                  key={social.id}
+                  network={social.name}
+                  url={social.url}
+                  className="opacity-80"
+                  style={{
+                    color: socialColors[`${social.name}`],
+                  }}
+                  fgColor="currentColor"
+                  bgColor="transparent"
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

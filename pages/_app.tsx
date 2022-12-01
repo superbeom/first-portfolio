@@ -18,7 +18,6 @@ import {
   RightNav,
   Panel,
   MobilePanel,
-  Loader,
   Invalid,
   ChannelService,
 } from "@/components";
@@ -139,7 +138,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   if (!isReady) {
-    return <Loader />;
+    return <></>;
   }
 
   if (error) {

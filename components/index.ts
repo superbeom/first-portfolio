@@ -2,7 +2,6 @@ export { default as LeftNav } from "./LeftNav";
 export { default as RightNav } from "./RightNav";
 export { default as Panel } from "./Panel";
 export { default as MobilePanel } from "./MobilePanel";
-export { default as Loader } from "./Loader";
 export { default as Hero } from "./Hero";
 export { default as About } from "./About";
 export { default as Experience } from "./Experience";
