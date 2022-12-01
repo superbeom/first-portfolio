@@ -44,7 +44,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   const detectResize = useDebounce(() => {
     const windowWidth = window.innerWidth;
 
-    if (windowWidth <= 425) {
+    if (windowWidth <= 640) {
       updateIsMobile(true);
       updateIsDesktop(false);
     } else if (windowWidth < 1024) {
@@ -159,7 +159,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
       </Head>
 
-      <LeftNav socials={socials} />
+      {!isMobile && <LeftNav socials={socials} />}
       <RightNav />
 
       <main>
