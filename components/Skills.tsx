@@ -10,6 +10,7 @@ interface Props {
 
 const Skills = ({ skills }: Props) => (
   <MotionContainer
+    id="skills"
     className="relative flex-center flex-col
       max-w-[2000px] min-h-screen h-full space-y-20 mx-auto"
   >

@@ -8,7 +8,8 @@ interface Props {
 }
 
 const Experience = ({ experiences }: Props) => (
-  <div
+  <section
+    id="experience"
     className="motion-container min-h-screen h-full max-w-full
       text-left overflow-hidden flex flex-col"
   >
@@ -25,7 +26,7 @@ const Experience = ({ experiences }: Props) => (
         />
       ))}
     </div>
-  </div>
+  </section>
 );
 
 export default Experience;

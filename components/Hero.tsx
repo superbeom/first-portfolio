@@ -25,7 +25,10 @@ const Hero = ({ user, socials }: Props) => {
   });
 
   return (
-    <div className="layout flex-center flex-col text-center overflow-hidden">
+    <section
+      id="hero"
+      className="active layout flex-center flex-col text-center overflow-hidden"
+    >
       <Circles />
 
       <Image
@@ -69,7 +72,7 @@ const Hero = ({ user, socials }: Props) => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

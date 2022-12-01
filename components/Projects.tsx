@@ -21,7 +21,7 @@ const settings = {
 
 const Projects = ({ projects }: Props) => {
   return (
-    <div className="relative flex-center min-h-screen h-full">
+    <section id="projects" className="relative flex-center min-h-screen h-full">
       <h2 className="title">Projects</h2>
 
       <Slider {...settings} className="w-[90vw] md:w-[60vw] h-full">
@@ -29,7 +29,7 @@ const Projects = ({ projects }: Props) => {
           <Project key={project.id} project={project} />
         ))}
       </Slider>
-    </div>
+    </section>
   );
 };
 

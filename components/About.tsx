@@ -11,6 +11,7 @@ interface Props {
 
 const About = ({ user }: Props) => (
   <MotionContainer
+    id="about"
     className="min-h-screen h-full motion-container lg:max-w-5xl xl:max-w-7xl text-center lg:text-left
     justify-start sm:justify-evenly"
   >

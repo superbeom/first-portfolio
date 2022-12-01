@@ -44,29 +44,17 @@ const Home: NextPage<Props> = ({
 
   return (
     <div className="overflow-x-hidden">
-      <section id="hero" className="active">
-        <Hero user={user} socials={socials} />
-      </section>
+      <Hero user={user} socials={socials} />
 
-      <section id="about">
-        <About user={user} />
-      </section>
+      <About user={user} />
 
-      <section id="experience">
-        <Experience experiences={experiences} />
-      </section>
+      <Experience experiences={experiences} />
 
-      <section id="skills">
-        <Skills skills={skills} />
-      </section>
+      <Skills skills={skills} />
 
-      <section id="projects">
-        <Projects projects={projects} />
-      </section>
+      <Projects projects={projects} />
 
-      <section id="contact">
-        <ContactMe user={user} />
-      </section>
+      <ContactMe user={user} />
     </div>
   );
 };

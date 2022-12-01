@@ -9,7 +9,10 @@ interface Props {
 }
 
 const ContactMe = ({ user }: Props) => (
-  <div className="relative layout flex-center w-screen px-5 md:px-10">
+  <section
+    id="contact"
+    className="relative layout flex-center w-screen px-5 md:px-10"
+  >
     <h2 className="title">Contact</h2>
 
     <div className="flex flex-col space-y-20 md:space-y-32 w-full">
@@ -43,7 +46,7 @@ const ContactMe = ({ user }: Props) => (
         </div>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default ContactMe;
