@@ -133,7 +133,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     return () => {
       window.removeEventListener("resize", detectResize);
-      window.addEventListener("scroll", detectScroll);
+      window.removeEventListener("scroll", detectScroll);
       channelTalk.shutdown();
     };
   }, []);
