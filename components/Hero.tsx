@@ -41,9 +41,9 @@ const Hero = ({ user, socials }: Props) => {
       />
 
       <div className="z-20">
-        <h4 className="text-sm text-gray-500 uppercase pb-2 tracking-[5px] sm:tracking-[15px]">
+        <h2 className="text-sm text-gray-500 uppercase pb-2 tracking-[5px] sm:tracking-[15px]">
           {user.role}
-        </h4>
+        </h2>
 
         <h3 className="text-4xl lg:text-6xl font-semibold">
           <span>{text}</span>
